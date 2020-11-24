@@ -266,7 +266,9 @@
                 <form  action="/abrircasilla" id="form">
                     <input type="text" name="X"  placeholder="Posicion X" id="X"> 
                     <input type="text" name="Y"  placeholder="Posicion Y" id="Y">
-                    <button type="submit" value="Abrir" onclick=" return ponerValor()">Abrir Casilla</button>     
+                    <button type="submit" value="Abrir" onclick=" return ponerValor()">Abrir Casilla</button>
+                    <button type="submit" value="Bnadera" onclick=" return ponerBandera()">Bnadera</button>
+                         
                 </form>
             </div>
 
@@ -312,7 +314,7 @@
         function mostrarMensajeBomba(){
 
             alert("Bomba! Perdiste");
-            document.getElementById(pos).style.color= "red";    
+            document.getElementById(pos).style.color= "blue";    
 
         }
 
@@ -325,6 +327,28 @@
         function limpiarFormulario() {
 
             document.getElementById("form").reset();
+        }
+
+        function ponerBandera() {
+
+            var a = document.getElementById('X').value; 
+            var b = document.getElementById('Y').value;
+            pos = a+b;
+
+            actual_value = document.getElementById(pos).innerText; 
+            console.log(actual_value); 
+            
+            document.getElementById(pos).style.backgroundColor= "red";
+            // document.getElementById(pos).style.backgroundImage = "url('https://media.istockphoto.com/vectors/red-flag-vector-object-icon-vector-id864425588')";
+            
+            limpiarFormulario();
+
+            cantTurnos++;
+            console.log(cantTurnos);
+
+        
+            return false; 
+            
         }
 
     </script>

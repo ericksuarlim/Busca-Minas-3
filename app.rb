@@ -25,8 +25,17 @@ get '/abrircasilla' do
     erb:tablero 
 end
 
+# get '/abrirbandera' do
+#     x = params[:X].to_i
+#     y = params[:Y].to_i
+#     juego.seleccionarCelda(x,y)
+#     @celdas_Desbloqueadas = '02'
+#     @matriz =juego.cargarMatriz()
+#     erb:tablero 
+# end
+
 get '/tutablero' do
-    #para probar , borrar luego
+    
     erb:tableroedit
 end
 
