@@ -80,6 +80,18 @@
 
         }
 
+        .Sector-Juego-Nuevo{
+            margin-top: 8px;
+            margin-bottom: 5px;
+            padding:5px;
+            background-color: rgb(39, 39, 39);
+            margin: auto;
+            justify-content: center;
+            display: flex;
+            width: 30%; 
+            border-radius: 5px;
+        }
+
         input[type=text] {
             background-color: white;
             color: black;
@@ -97,6 +109,7 @@
         }
 
     </style>
+
 </head>
 <body> 
     <div class="container">
@@ -266,9 +279,15 @@
                 <form  action="/abrircasilla" id="form">
                     <input type="text" name="X"  placeholder="Posicion X" id="X"> 
                     <input type="text" name="Y"  placeholder="Posicion Y" id="Y">
-                    <button type="submit" value="Abrir" onclick=" return ponerValor()">Abrir Casilla</button>
-                    <button type="submit" value="Bnadera" onclick=" return ponerBandera()">Bnadera</button>
+                    <button type="submit" value="Abrir" id="AB" onclick=" return ponerValor()">Abrir Casilla</button>
+                    <button type="submit" value="Bandera" id="BB" onclick=" return ponerBandera()">Bandera</button>
                          
+                </form>
+            </div>
+
+            <div class="Sector-Juego-Nuevo">
+                <form action="/">
+                    <button type="submit" id="JNuevo" value="JuegoNuevo" disabled>Juego Nuevo</button>
                 </form>
             </div>
 
@@ -294,14 +313,16 @@
             cantTurnos++;
             console.log(cantTurnos);
 
-            if(cantTurnos == 4){        //Debe ser ==100 porque hay 100 casillas. Cuando todas se llenan, el jugador gana. 
+            if(cantTurnos == 92){        //Debe ser ==92 porque hay 100 casillas. Cuando todas se llenan, el jugador gana. 
                 mostrarMensajeGanador();
-
             } 
 
             if (actual_value == '*') { 
                 mostrarMensajeBomba();
+                desabilitarBotones();
+                enableJuegoNuevo();
             }
+            
             if (actual_value == '-') { 
                 document.getElementById(pos).style.backgroundColor= "gray";
             }
@@ -311,16 +332,27 @@
             
         }
 
+        function enableJuegoNuevo(){
+            document.getElementById('JNuevo').disabled =false; 
+        }
+
+        function desabilitarBotones(){
+            document.getElementById('X').disabled = true;
+            document.getElementById('Y').disabled =true;
+            document.getElementById('AB').disabled =true; 
+            document.getElementById('BB').disabled =true; 
+        }
+
         function mostrarMensajeBomba(){
 
             alert("Bomba! Perdiste");
-            document.getElementById(pos).style.color= "blue";    
-
+            document.getElementById(pos).style.color= "blue";
+            document.getElementById(pos).style.backgroundColor= "red";
         }
 
         function mostrarMensajeGanador(){
 
-            alert("Felicidades! Ganste");
+            alert("Felicidades! Ganaste");
 
         }
 
@@ -336,11 +368,8 @@
             pos = a+b;
 
             actual_value = document.getElementById(pos).innerText; 
-            console.log(actual_value); 
-            
-            document.getElementById(pos).style.backgroundColor= "red";
-            // document.getElementById(pos).style.backgroundImage = "url('https://media.istockphoto.com/vectors/red-flag-vector-object-icon-vector-id864425588')";
-            
+            console.log(actual_value);           
+            document.getElementById(pos).style.backgroundColor= "#ff4400";                 
             limpiarFormulario();
 
             cantTurnos++;

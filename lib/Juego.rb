@@ -13,30 +13,33 @@ class Juego
             ["-","-","-","1","1","2","1","1","-","-"],
             ["-","-","-","1","*","1","-","-","-","-"]
         ]
-        @celdas_Desbloqueadas = []
-
+        @countTurns=0
     end   
 
     def cargarMatriz()      #* es mina, - vacio, numero 
         return  @matriz_casillas
     end
-
-    # def pintarMatriz(x, y)
-    #     if @matriz_casillas[x][y] == 3
-    #         return "Es bomba"
-    #     end
-    # end
-    
-    def retornarCasilla(x,y)
+   
+    def inspeccioanarCasilla(x,y)
+        @countTurns= @countTurns + 1
+        esBomba(x, y)
         return @matriz_casillas[x][y]
     end
 
-    def getCeldasDesbloqueadas()
-        return  @celdas_Desbloqueada
+    def esGanador()
+        if(@countTurns==92)
+            return true
+        else
+            return false
+        end   
     end
 
-    def seleccionarCelda(x,y)
-        @celdas_Desbloqueada = ["02"]
+    def esBomba(posX, posY)
+        if(@matriz_casillas[posX][posY]=='*')
+            return true
+        else
+            return false
+        end
     end
 
 end
