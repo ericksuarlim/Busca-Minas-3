@@ -26,7 +26,7 @@ get '/abrircasilla' do
 end
 
 get '/tutablero' do
-    
+    #para probar , borrar luego
     erb:tableroedit
 end
 
