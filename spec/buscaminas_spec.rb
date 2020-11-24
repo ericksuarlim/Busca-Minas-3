@@ -5,9 +5,14 @@ RSpec.describe Juego do
     before{@juego=Juego.new}
     
 
-    it "es tres" do
+    it "Cargar Matriz: En este caso deberia de devolver 3" do
         juego = Juego.new
-        expect(@juego.cargarMatriz()[1][1]).to eq ('3')
+        expect(@juego.cargarMatriz(1)[1][1]).to eq ('3')
+    end
+
+    it "Cargar Matriz: En este caso deberia de devolver -" do
+        juego = Juego.new
+        expect(@juego.cargarMatriz(2)[1][1]).to eq ('-')
     end
 
     it "Retonar Casilla deberia devolver en este caso: 2" do

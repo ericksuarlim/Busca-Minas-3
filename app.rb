@@ -21,7 +21,11 @@ get '/tutablero' do
 end
 
 get '/tableromain' do
-
-    @matriz =juego.cargarMatriz()
+    tamano=1 #estoy poniendo 1 porque aun no esta terminado
+    #tamano= params[:dificultad].to_i
+    @matriz =juego.cargarMatriz(tamano)
     erb:tablero
+end
+
+get '/configurarTamano' do
 end

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Tu tablero</title>
     <style>
         .title {
@@ -29,7 +31,7 @@
         .central_div{
             margin: auto;
             width: 80%;
-            height: 220px; 
+            height: 350px; 
             background-color: rgb(39, 39, 39);
             padding: 5px;
             border-radius: 5px;
@@ -49,11 +51,14 @@
             color: black;
         }
 
-        button[type=submit]{
+        button[type=submit], input[type=button]{
             margin-top: 8px;
             height: 30px;
             width: 240px;
             background-color: #995400;
+        }
+        label{
+            color: #FF9F2A;
         }
 
     </style>
@@ -63,50 +68,108 @@
         <h1 class="title">Tu Tablero</h1>
         <div class="central_div">
 
-            <h3>Ingresa las coordenadas para tus minas</h3>
+            
             
             <form action="/tableromain">
-                <div>
-                    <p>Mina 1</p>
-                    <input type="text" name="mina1x"  placeholder="x" id="m1x"> 
-                    <input type="text" name="mina1y"  placeholder="y" id="m1y">  
-                </div>
+                <h3>Ingresa la dificultad del juego</h3>
 
                 <div>
-                    <p>Mina 2</p>
-                    <input type="text" name="mina2x"  placeholder="x" id="m2x">
-                    <input type="text" name="mina2y"  placeholder="y" id="m2y">
+                    <input type="radio" name="dificultad" id="facil" value="1">
+                    <label>FACIL Tamano 10x10 / 3 Minas</label>
+                    <input type="radio" name="dificultad" id="medio" value="2">
+                    <label>DIFICIL Tamano 15x15 / 5 Minas</label>
+                    <div>
+                        <input type="button" id="Confirmar" onclick="return cargarDificultad()" value="Confirmar">
+                    </div>
 
                 </div>
+
+
+                <div id="zona_inputs">
+                    <h3 id="h3_Inputs" hidden>Ingresa las coordenadas para tus minas</h3>
+                   
+                    <div id="inputM1"hidden>
+                        <p>Mina 1</p>
+                        <input type="text" name="mina1x"  placeholder="x" id="m1x" > 
+                        <input type="text" name="mina1y"  placeholder="y" id="m1y" >  
+                    </div>
+
+                    <div id="inputM2" hidden>
+                        <p>Mina 2</p>
+                        <input type="text" name="mina2x"  placeholder="x" id="m2x">
+                        <input type="text" name="mina2y"  placeholder="y" id="m2y">
+
+                    </div hidden>
+                        
+                    <div id="inputM3" hidden>
+                        <p>Mina 3</p>
+                        <input type="text" name="mina3x"  placeholder="x" id="m3x">
+                        <input type="text" name="mina3y"  placeholder="y" id="m3y">
                     
-                <div>
-                    <p>Mina 3</p>
-                    <input type="text" name="mina3x"  placeholder="x" id="m3x">
-                    <input type="text" name="mina3y"  placeholder="y" id="m3y">
-                
-                </div>
+                    </div>
 
-                <div>
-                    <p>Mina 4</p>
-                    <input type="text" name="mina4x"  placeholder="x" id="m4x">
-                    <input type="text" name="mina4y"  placeholder="y" id="m4y">
-                
-                </div>
+                    <div id="inputM4" hidden>
+                        <p>Mina 4</p>
+                        <input type="text" name="mina4x"  placeholder="x" id="m4x">
+                        <input type="text" name="mina4y"  placeholder="y" id="m4y">
+                    
+                    </div>
 
-                <div>
-                    <p>Mina 5</p>
-                    <input type="text" name="mina5x"  placeholder="x" id="m4x">
-                    <input type="text" name="mina5y"  placeholder="y" id="m4y">
+                    <div id="inputM5" hidden>
+                        <p>Mina 5</p>
+                        <input type="text" name="mina5x"  placeholder="x" id="m5x">
+                        <input type="text" name="mina5y"  placeholder="y" id="m5y">
+                    
+                    </div>
                 
                 </div>
-    
-                <button type="submit" value="Jugar">Jugar</button>
+                
+                <button type="submit" value="Jugar" id="boton-jugar"hidden>Jugar</button>
+
             </form>
 
 
         </div>
 
     </div>
+
+    <script>
+        function cargarDificultad(){
+            var radios = document.getElementsByName('dificultad');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    var opcion_seleccionada= radios[i].value;
+                    break;
+                }
+            }            
+            mostrarInputs(opcion_seleccionada);
+            console.log(opcion_seleccionada);
+        }
+
+        function mostrarInputs(val_seleccionado){
+            
+            document.getElementById('h3_Inputs').hidden = false;
+            document.getElementById('boton-jugar').hidden = false;
+
+            document.getElementById('inputM1').hidden = false;
+            document.getElementById('inputM2').hidden = false;
+            document.getElementById('inputM3').hidden = false;
+            if(val_seleccionado==2){
+                document.getElementById('inputM4').hidden = false;
+                document.getElementById('inputM5').hidden = false;
+
+            }
+            else 
+            {
+                document.getElementById('inputM4').hidden = true;
+                document.getElementById('inputM5').hidden = true;
+
+            }
+            
+        }
+        
+    </script>
+    
     
 </body>
 </html>
