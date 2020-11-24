@@ -7,7 +7,7 @@ RSpec.describe Juego do
 
     it "Cargar Matriz: En este caso deberia de devolver 3" do
         juego = Juego.new
-        expect(@juego.cargarMatriz(1)[1][1]).to eq ('3')
+        expect(@juego.cargarMatriz(3)[1][1]).to eq ('3')
     end
 
     it "Cargar Matriz: En este caso deberia de devolver -" do

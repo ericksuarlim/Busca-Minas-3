@@ -21,11 +21,26 @@ get '/tutablero' do
 end
 
 get '/tableromain' do
-    tamano=1 #estoy poniendo 1 porque aun no esta terminado
-    #tamano= params[:dificultad].to_i
-    @matriz =juego.cargarMatriz(tamano)
+    @matriz =juego.cargarMatriz(3)
     erb:tablero
 end
 
-get '/configurarTamano' do
+get '/cargartablero' do
+    id_matriz= params[:dificultad].to_i
+
+    # min1x= params[:mina1x].to_i
+    # min1y= params[:mina1y].to_i
+
+    # vector=[min1x,min1y,.....]
+    # juego.iniciarMatriz(vector, id_matriz)
+
+    @matriz = juego.cargarMatriz(id_matriz)
+    if(id_matriz==1)
+        erb:tableroFacil
+    end
+    if (id_matriz==2)
+        erb:tableroDificil
+    end
 end
+
+
