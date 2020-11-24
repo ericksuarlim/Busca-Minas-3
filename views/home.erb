@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        .title {
+        color: #FF9900;
+        text-align: center;
+        padding: 4px 1px 1px 1px;
+        margin: 2px;
+        }
+
+        .container{
+            background-color:black;
+            min-height: 100vh;
+
+        }
+
+        .central_div{
+            margin: auto;
+            width: 80%;
+            height: 100px; 
+            background-color: rgb(39, 39, 39);
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+            position:relative;
+            
+            
+            
+        }
+
+        h3{
+            color: #FFB458;
+            margin: 5px;
+            margin-bottom: 10px;
+            padding: 3px;
+
+        }
+
+        .form1{
+            text-align: right;
+            display: inline;
+        }
+
+        .form2{
+            text-align: left;
+            display: inline;
+        }
+        
+        button[type=submit]{
+            background-color: #995400;
+            width: 150px;
+            color: #FFB458;  
+        }
+
+        h5{
+            bottom: 0;
+            color: white;
+            font-size: 0.5em;
+            padding: 0px;
+            margin: 0px;
+            font-weight: 100;
+            position: absolute;
+
+        }   
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Bienvenido a Busca Minas</h1>
+        <div class="central_div">
+
+            <h3>¿Como desea iniciar su partida?</h3>
+            
+            <form action="/tableromain" class="form1">
+                    <button type="submit" value="Abrir">Tablero del Juego</button>
+            </form>
+
+            <form action="/tutablero" class="form2" > 
+                <button type="submit" value="Abrir">Tu propio tablero </button>
+            </form>
+
+            <h5>Suport by: Ricardo Sandi & Erick Suarez</h5>
+
+        </div>
+
+    </div>
+</body>
+</html>

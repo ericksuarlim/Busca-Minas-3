@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu tablero</title>
+    <style>
+        .title {
+        color: #FF9900;
+        text-align: center;
+        padding: 4px 1px 1px 1px;
+        margin: 2px;
+        }
+
+        h3{
+            color: #FFB458;
+            margin: 5px;
+            margin-bottom: 10px;
+            padding: 3px;
+
+        }
+
+        .container{
+            background-color:black;
+            min-height: 100vh;
+
+        }
+
+        .central_div{
+            margin: auto;
+            width: 80%;
+            height: 220px; 
+            background-color: rgb(39, 39, 39);
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;    
+        }
+
+        p{
+            display: inline-block;
+            margin: 2px;
+            color: #FFB458;
+            text-align: center;
+        }
+        input[type=text]{
+            text-align: center;
+            width: 80px;
+            background-color: #FF9F2A;
+            color: black;
+        }
+
+        button[type=submit]{
+            margin-top: 8px;
+            height: 30px;
+            width: 240px;
+            background-color: #995400;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Tu Tablero</h1>
+        <div class="central_div">
+
+            <h3>Ingresa las coordenadas para tus minas</h3>
+            
+            <form action="/tableromain">
+                <div>
+                    <p>Mina 1</p>
+                    <input type="text" name="mina1x"  placeholder="x" id="m1x"> 
+                    <input type="text" name="mina1y"  placeholder="y" id="m1y">  
+                </div>
+
+                <div>
+                    <p>Mina 2</p>
+                    <input type="text" name="mina2x"  placeholder="x" id="m2x">
+                    <input type="text" name="mina2y"  placeholder="y" id="m2y">
+
+                </div>
+                    
+                <div>
+                    <p>Mina 3</p>
+                    <input type="text" name="mina3x"  placeholder="x" id="m3x">
+                    <input type="text" name="mina3y"  placeholder="y" id="m3y">
+                
+                </div>
+
+                <div>
+                    <p>Mina 4</p>
+                    <input type="text" name="mina4x"  placeholder="x" id="m4x">
+                    <input type="text" name="mina4y"  placeholder="y" id="m4y">
+                
+                </div>
+
+                <div>
+                    <p>Mina 5</p>
+                    <input type="text" name="mina5x"  placeholder="x" id="m4x">
+                    <input type="text" name="mina5y"  placeholder="y" id="m4y">
+                
+                </div>
+    
+                <button type="submit" value="Jugar">Jugar</button>
+            </form>
+
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

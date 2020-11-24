@@ -1,0 +1,54 @@
+
+.title {
+    color: #FF9900;
+    text-align: center;
+    padding: 4px 1px 1px 1px;
+    margin: 2px;
+}
+
+.table{
+    margin: auto;
+    padding: 10px;
+    
+}
+
+.barra-opciones{
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+}
+
+td{
+    background-color: #FFD239;
+    color: #FFD239;
+    height: 30px;
+    width: 30px;
+    text-align:center;
+
+}
+
+.container{
+    background-color: rgb(39, 39, 39);
+    min-height: 100vh;
+
+}
+
+.Sector-Botones {
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: 5px;
+    padding-top: 5px;
+    background-color: red;
+    width: 40%;
+    
+    
+    width: 40%;
+    display: flex;     
+    justify-content: center;
+    margin: auto;
+    /* margin:auto; */
+
+}
+
+
