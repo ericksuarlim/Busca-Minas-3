@@ -45,16 +45,25 @@ RSpec.describe Juego do
         expect(@juego.esBomba(0,0)).to eq (false)
     end
 
-    it "Tablero vacio: En este caso deberia de retorna -"  do
+    it "Tablero vacio 10x10: En este caso deberia de retorna -"  do
         juego =Juego.new
-        expect(@juego.cargarTableroVacio()[0][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio()[0][9]).to eq ('-')
-        expect(@juego.cargarTableroVacio()[9][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio()[9][9]).to eq ('-')
-        #Probando con las esquinas del tablero 
+        expect(@juego.cargarTableroVacio10x10()[0][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio10x10()[0][9]).to eq ('-')
+        expect(@juego.cargarTableroVacio10x10()[9][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio10x10()[9][9]).to eq ('-')
+        #Probando con las esquinas del tablero 10x10
         
     end
 
+    it "Tablero vacio 15x15: En este caso deberia de retorna -"  do
+        juego =Juego.new
+        expect(@juego.cargarTableroVacio15x15()[0][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio15x15()[0][14]).to eq ('-')
+        expect(@juego.cargarTableroVacio15x15()[14][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio15x15()[14][14]).to eq ('-')
+        #Probando con las esquinas del tablero 15x15
+        
+    end
 
 
 end

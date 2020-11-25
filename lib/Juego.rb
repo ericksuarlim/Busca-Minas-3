@@ -86,8 +86,12 @@ class Juego
         #llenar el tablero con mina
         #poner numeros al tablero
     end
-    def cargarTableroVacio()
-        return @matriz_casillas_3
+    def cargarTableroVacio10x10()
+        return @matriz_casillas3
+    end
+
+    def cargarTableroVacio15x15()
+        return @matriz_casillas2
     end
 
 end
