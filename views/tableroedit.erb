@@ -68,9 +68,7 @@
         <h1 class="title">Tu Tablero</h1>
         <div class="central_div">
 
-
-
-            <form action="#" id="form-charge-tablero">
+            <form action="/cargartablero" id="form-charge-tablero">
                 <h3>Ingresa la dificultad del juego</h3>
 
                 <div>
@@ -127,7 +125,6 @@
                 <button type="submit" value="Jugar" id="boton-jugar" hidden >Jugar</button>
 
             </form>
-
 
         </div>
 
@@ -204,12 +201,12 @@
                 }
 
             }
-            if (apto==true) //Desabilita las casillas que ya estan comprobadas de no tener valores repetidos
-            {
-                for(var i = 0; i < tam; i++) {
-                    document.getElementsByClassName('numeros')[i].disabled = true;
-                }
-            }
+            // if (apto==true) //Desabilita las casillas que ya estan comprobadas de no tener valores repetidos
+            // {
+            //     for(var i = 0; i < tam; i++) {
+            //         document.getElementsByClassName('numeros')[i].disabled = true;
+            //     }
+            // }
         }
 
 

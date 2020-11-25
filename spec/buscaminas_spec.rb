@@ -7,12 +7,12 @@ RSpec.describe Juego do
 
     it "Cargar Matriz: En este caso deberia de devolver 3" do
         juego = Juego.new
-        expect(@juego.cargarMatriz(3)[1][1]).to eq ('3')
+        expect(@juego.cargarMatrizSimple()[1][1]).to eq ('3')
     end
 
-    it "Cargar Matriz: En este caso deberia de devolver -" do
+    it "Cargar Matriz Compleja: En este caso deberia de devolver -" do
         juego = Juego.new
-        expect(@juego.cargarMatriz(2)[1][1]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(2,[])[1][1]).to eq ('-')
     end
 
     it "Retonar Casilla deberia devolver en este caso: 2" do
@@ -47,20 +47,20 @@ RSpec.describe Juego do
 
     it "Cargar Matriz(1): En este caso deberia de retornar -"  do
         juego =Juego.new
-        expect(@juego.cargarMatriz(1)[0][0]).to eq ('-')
-        expect(@juego.cargarMatriz(1)[0][9]).to eq ('-')
-        expect(@juego.cargarMatriz(1)[9][0]).to eq ('-')
-        expect(@juego.cargarMatriz(1)[9][9]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(1,[])[0][0]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(1,[])[0][9]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(1,[])[9][0]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(1,[])[9][9]).to eq ('-')
         #Probando con las esquinas del tablero 10x10
         
     end
 
     it "Cargar Matriz(2): En este caso deberia de retornar -"  do
         juego =Juego.new
-        expect(@juego.cargarMatriz(2)[0][0]).to eq ('-')
-        expect(@juego.cargarMatriz(2)[0][14]).to eq ('-')
-        expect(@juego.cargarMatriz(2)[14][0]).to eq ('-')
-        expect(@juego.cargarMatriz(2)[14][14]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(2,[])[0][0]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(2,[])[0][14]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(2,[])[14][0]).to eq ('-')
+        expect(@juego.cargarMatrizCompleja(2,[])[14][14]).to eq ('-')
         #Probando con las esquinas del tablero 15x15
         
     end

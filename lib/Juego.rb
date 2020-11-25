@@ -48,15 +48,16 @@ class Juego
         @countTurns=0
     end   
 
-    def cargarMatriz(tamano)      #1 10x10 Usuario // 2 15x15 Usuario // 3 Por defecto
+    def cargarMatrizSimple()      #1 10x10 Usuario // 2 15x15 Usuario // 3 Por defecto
+        return @matriz_casillas
+    end
+
+    def cargarMatrizCompleja(tamano,vector)
         if(tamano==1)
             return  @matriz_casillas3
         end
         if(tamano==2)
             return @matriz_casillas2
-        end
-        if(tamano==3)
-            return @matriz_casillas
         end
     end
    
