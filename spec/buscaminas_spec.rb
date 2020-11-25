@@ -45,22 +45,22 @@ RSpec.describe Juego do
         expect(@juego.esBomba(0,0)).to eq (false)
     end
 
-    it "Tablero vacio 10x10: En este caso deberia de retorna -"  do
+    it "Cargar Matriz(1): En este caso deberia de retornar -"  do
         juego =Juego.new
-        expect(@juego.cargarTableroVacio10x10()[0][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio10x10()[0][9]).to eq ('-')
-        expect(@juego.cargarTableroVacio10x10()[9][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio10x10()[9][9]).to eq ('-')
+        expect(@juego.cargarMatriz(1)[0][0]).to eq ('-')
+        expect(@juego.cargarMatriz(1)[0][9]).to eq ('-')
+        expect(@juego.cargarMatriz(1)[9][0]).to eq ('-')
+        expect(@juego.cargarMatriz(1)[9][9]).to eq ('-')
         #Probando con las esquinas del tablero 10x10
         
     end
 
-    it "Tablero vacio 15x15: En este caso deberia de retorna -"  do
+    it "Cargar Matriz(2): En este caso deberia de retornar -"  do
         juego =Juego.new
-        expect(@juego.cargarTableroVacio15x15()[0][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio15x15()[0][14]).to eq ('-')
-        expect(@juego.cargarTableroVacio15x15()[14][0]).to eq ('-')
-        expect(@juego.cargarTableroVacio15x15()[14][14]).to eq ('-')
+        expect(@juego.cargarMatriz(2)[0][0]).to eq ('-')
+        expect(@juego.cargarMatriz(2)[0][14]).to eq ('-')
+        expect(@juego.cargarMatriz(2)[14][0]).to eq ('-')
+        expect(@juego.cargarMatriz(2)[14][14]).to eq ('-')
         #Probando con las esquinas del tablero 15x15
         
     end

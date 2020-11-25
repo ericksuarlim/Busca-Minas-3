@@ -31,11 +31,11 @@
         .central_div{
             margin: auto;
             width: 80%;
-            height: 350px; 
+            height: 350px;
             background-color: rgb(39, 39, 39);
             padding: 5px;
             border-radius: 5px;
-            text-align: center;    
+            text-align: center;
         }
 
         p{
@@ -68,9 +68,9 @@
         <h1 class="title">Tu Tablero</h1>
         <div class="central_div">
 
-            
-            
-            <form action="/cargartablero">
+
+
+            <form action="#" id="form-charge-tablero">
                 <h3>Ingresa la dificultad del juego</h3>
 
                 <div>
@@ -87,44 +87,44 @@
 
                 <div id="zona_inputs">
                     <h3 id="h3_Inputs" hidden>Ingresa las coordenadas para tus minas</h3>
-                   
+
                     <div id="inputM1"hidden>
                         <p>Mina 1</p>
-                        <input type="text" name="mina1x"  placeholder="x" id="m1x" > 
-                        <input type="text" name="mina1y"  placeholder="y" id="m1y" >  
+                        <input class="numeros" type="number" name="mina1x"  placeholder="x" id="m1x" max="9" min="0" >
+                        <input class="numeros" type="number" name="mina1y"  placeholder="y" id="m1y" max="9" min="0" >
                     </div>
 
                     <div id="inputM2" hidden>
                         <p>Mina 2</p>
-                        <input type="text" name="mina2x"  placeholder="x" id="m2x">
-                        <input type="text" name="mina2y"  placeholder="y" id="m2y">
+                        <input class="numeros" type="number" name="mina2x"  placeholder="x" id="m2x" max="9" min="0" >
+                        <input class="numeros" type="number" name="mina2y"  placeholder="y" id="m2y" max="9" min="0" onchange="validaRepeticion()">
 
                     </div hidden>
-                        
+
                     <div id="inputM3" hidden>
                         <p>Mina 3</p>
-                        <input type="text" name="mina3x"  placeholder="x" id="m3x">
-                        <input type="text" name="mina3y"  placeholder="y" id="m3y">
-                    
+                        <input class="numeros" type="number" name="mina3x"  placeholder="x" id="m3x" max="9" min="0" >
+                        <input class="numeros" type="number" name="mina3y"  placeholder="y" id="m3y" max="9" min="0" onchange="validaRepeticion()">
+
                     </div>
 
                     <div id="inputM4" hidden>
                         <p>Mina 4</p>
-                        <input type="text" name="mina4x"  placeholder="x" id="m4x">
-                        <input type="text" name="mina4y"  placeholder="y" id="m4y">
-                    
+                        <input class="numeros" type="number" name="mina4x"  placeholder="x" id="m4x" max="9" min="0" >
+                        <input class="numeros" type="number" name="mina4y"  placeholder="y" id="m4y" max="9" min="0" onchange="validaRepeticion()">
+
                     </div>
 
                     <div id="inputM5" hidden>
                         <p>Mina 5</p>
-                        <input type="text" name="mina5x"  placeholder="x" id="m5x">
-                        <input type="text" name="mina5y"  placeholder="y" id="m5y">
-                    
+                        <input class="numeros" type="number" name="mina5x"  placeholder="x" id="m5x" max="9" min="0" >
+                        <input class="numeros" type="number" name="mina5y"  placeholder="y" id="m5y" max="9" min="0" onchange="validaRepeticion()">
+
                     </div>
-                
+
                 </div>
-                
-                <button type="submit" value="Jugar" id="boton-jugar"hidden>Jugar</button>
+
+                <button type="submit" value="Jugar" id="boton-jugar" hidden >Jugar</button>
 
             </form>
 
@@ -141,13 +141,13 @@
                     var opcion_seleccionada= radios[i].value;
                     break;
                 }
-            }            
+            }
             mostrarInputs(opcion_seleccionada);
             console.log(opcion_seleccionada);
         }
 
         function mostrarInputs(val_seleccionado){
-            
+
             document.getElementById('h3_Inputs').hidden = false;
             document.getElementById('boton-jugar').hidden = false;
 
@@ -159,17 +159,62 @@
                 document.getElementById('inputM5').hidden = false;
 
             }
-            else 
+            else
             {
                 document.getElementById('inputM4').hidden = true;
                 document.getElementById('inputM5').hidden = true;
 
             }
-            
+
         }
-        
+
+        function validaRepeticion() {
+            var inputs = document.getElementsByClassName('numeros');
+            var apto=true;
+            iterador=0;
+            tam=0
+            while(inputs[iterador].value != "")
+            {
+                tam=tam+1;
+                iterador++;
+                if(iterador==10)
+                {
+                    break;
+                }
+            }
+            //For para controlar las casillas repetidas
+            for(var i = 0; i < tam; i=i+2) {
+
+                count=0;
+                for(var k = 0; k < tam; k=k+2) {
+                    
+                    if( inputs[i].value == inputs[k].value && inputs[i+1].value == inputs[k+1].value)
+                    {
+                        count = count+1;
+                        if(count==2)
+                        {
+                            alert("Reingrese el valor de la ultima mina, esta duplicada!");
+                            i=tam;
+                            k=tam;
+                            apto=false;
+                            break;
+                        }
+
+                    }
+                }
+
+            }
+            if (apto==true) //Desabilita las casillas que ya estan comprobadas de no tener valores repetidos
+            {
+                for(var i = 0; i < tam; i++) {
+                    document.getElementsByClassName('numeros')[i].disabled = true;
+                }
+            }
+        }
+
+
     </script>
-    
-    
+
+
 </body>
 </html>
