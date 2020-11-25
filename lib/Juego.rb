@@ -86,13 +86,18 @@ class Juego
 
     def ingresarMinas(id, vector)
         #llenar el tablero con mina
-        # for(int i =0 ; i<vector.length ; i=i+2)
-        #     if(id==1)
-        #         @matriz_casillas2[i][i+1]="*"
-        #     else
-        #         @matriz_casillas3[i][i+1]="*"
+        if( vector.length>0)
+            for i in (0..vector.length).step(2) do
+                if(id==1)
+                    @matriz_casillas2[1][1]= '*'
+                else
+                    @matriz_casillas3[1][1]= '*'
+                end
+            end
+
+        end
+
             
-        # end
         #poner numeros al tablero
     end
     

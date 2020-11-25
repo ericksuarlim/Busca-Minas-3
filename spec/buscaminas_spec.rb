@@ -10,11 +10,6 @@ RSpec.describe Juego do
         expect(@juego.cargarMatrizSimple()[1][1]).to eq ('3')
     end
 
-    it "Cargar Matriz Compleja: En este caso deberia de devolver -" do
-        juego = Juego.new
-        expect(@juego.cargarMatrizCompleja(2,[])[1][1]).to eq ('-')
-    end
-
     it "Retonar Casilla deberia devolver en este caso: 2" do
         juego = Juego.new
         expect(@juego.inspeccioanarCasilla(0, 0)).to eq ('2')
@@ -63,6 +58,12 @@ RSpec.describe Juego do
         expect(@juego.cargarMatrizCompleja(2,[])[14][14]).to eq ('-')
         #Probando con las esquinas del tablero 15x15
         
+    end
+
+    it "Matriz Compleja: En este caso deberia de devolver *"  do
+    juego =Juego.new
+    vector=[1,1]
+    expect(@juego.cargarMatrizCompleja(1,vector)[1][1]).to eq ('*')
     end
 
 
