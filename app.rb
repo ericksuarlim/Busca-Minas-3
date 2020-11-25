@@ -25,22 +25,37 @@ get '/tableromain' do
     erb:tablero
 end
 
+# get '/cargartablero' do
+#     id_matriz= params[:dificultad].to_i
+
+#     # min1x= params[:mina1x].to_i
+#     # min1y= params[:mina1y].to_i
+
+#     # vector=[min1x,min1y,.....]
+#     # juego.iniciarMatriz(vector, id_matriz)
+
+#     @matriz = juego.cargarMatriz(id_matriz)
+#     if(id_matriz==1)
+#         erb:tablero #tableroFacil
+#     end
+#     if (id_matriz==2)
+#         erb:tablero #tableroDificil
+#     end
+# end
+
 get '/cargartablero' do
-    id_matriz= params[:dificultad].to_i
+    @id_matriz= params[:dificultad].to_i
+    @suma = @id_matriz + @id_matriz
+    @matriz =juego.cargarMatriz(@id_matriz)
 
-    # min1x= params[:mina1x].to_i
-    # min1y= params[:mina1y].to_i
-
-    # vector=[min1x,min1y,.....]
-    # juego.iniciarMatriz(vector, id_matriz)
-
-    @matriz = juego.cargarMatriz(id_matriz)
-    if(id_matriz==1)
-        erb:tableroFacil
+    if @id_matriz == 1
+        erb:tableroFacil #tableroFacil
+    
+    elsif @id_matriz == 2
+        erb:tableroDificil #tableroDificil
+    else
+        erb:id 
     end
-    if (id_matriz==2)
-        erb:tableroDificil
-    end
-end
-
+ 
+end 
 

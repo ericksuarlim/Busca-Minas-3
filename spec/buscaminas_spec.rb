@@ -45,6 +45,16 @@ RSpec.describe Juego do
         expect(@juego.esBomba(0,0)).to eq (false)
     end
 
+    it "Tablero vacio: En este caso deberia de retorna -"  do
+        juego =Juego.new
+        expect(@juego.cargarTableroVacio()[0][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio()[0][9]).to eq ('-')
+        expect(@juego.cargarTableroVacio()[9][0]).to eq ('-')
+        expect(@juego.cargarTableroVacio()[9][9]).to eq ('-')
+        #Probando con las esquinas del tablero 
+        
+    end
+
 
 
 end

@@ -1,13 +1,388 @@
-<!DOCTYPE html>
+<!DOCTYPE html>     <%#Tablero 15x15 %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <title>Tablero Dificil</title>
+    <title>BuscaMinas</title>
+    <style>
+        
+        /*.color-primary-0 {color: # F78800} / * Color primario principal * /
+        .color-primary-1 {color: # FFB458}
+        .color-primary-2 {color: # FF9F2A}
+        .color-primary-3 {color: # C46C00}
+        .color-primary-4 {color: # 995400}*/
+
+        .title {
+        color: #FF9900;
+        text-align: center;
+        padding: 4px 1px 1px 1px;
+        margin: 2px;
+        }
+
+        .container{
+            background-color:black;
+            min-height: 100vh;
+
+        }
+
+        .central_div{
+            margin: auto;
+            width: 80%; 
+            background-color: rgb(39, 39, 39);
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .Sector-table{
+            overflow:hidden; 
+        }
+
+        .table{
+            margin: auto;
+            padding: 10px;
+             
+            
+        }
+
+        .barra-opciones{
+            background-color: #F78800;
+            height: 20px;
+            width: 20px;
+            color:#FFB458
+        }
+
+        td{
+            background-color: #FFB458;
+            color: transparent;
+            height: 30px;
+            width: 30px;
+            text-align:center;
+            
+           
+            
+            
+
+        }
+
+        .Sector-Botones {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding:5px;
+            background-color: #995400;
+            margin: auto;
+            justify-content: center;
+            display: flex;
+            width: 60%; 
+            border-radius: 5px;
+            
+
+        }
+
+        .Sector-Juego-Nuevo{
+            margin-top: 8px;
+            margin-bottom: 5px;
+            padding:5px;
+            background-color: rgb(39, 39, 39);
+            margin: auto;
+            justify-content: center;
+            display: flex;
+            width: 30%; 
+            border-radius: 5px;
+        }
+
+        input[type=text] {
+            background-color: white;
+            color: black;
+            size: 10px;
+        }
+
+        button[type=submit]{
+            background-color: #FFB458;
+            
+        }
+
+        <%=@celdas_Desbloqueadas%>{
+            background-color: red;
+            color: blue;
+        }
+
+    </style>
+
 </head>
-<body>
-    
+<body> 
+    <div class="container">
+        <h1 class="title">Buscaminas Master Redox - Tablero Dificil</h1>
+        <div class="central_div">
+            <div class= "Sector-table">
+                <table class="table">
+                
+                    <tr class="barra-opciones" style="margin-bottom: 5px;">
+                        <td class="barra-opciones"></td>
+                        <td class="barra-opciones">0</td>
+                        <td class="barra-opciones">1</td>
+                        <td class="barra-opciones">2</td>
+                        <td class="barra-opciones">3</td>
+                        <td class="barra-opciones">4</td>
+                        <td class="barra-opciones">5</td>
+                        <td class="barra-opciones">6</td>
+                        <td class="barra-opciones">7</td>
+                        <td class="barra-opciones">8</td>
+                        <td class="barra-opciones">9</td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">0</td>
+                        <td id="00"><%=@matriz[0][0]%></td>
+                        <td id="01"><%=@matriz[0][1]%></td>
+                        <td id="02"><%=@matriz[0][2]%></td>
+                        <td id="03"><%=@matriz[0][3]%></td>
+                        <td id="04"><%=@matriz[0][4]%></td>
+                        <td id="05"><%=@matriz[0][5]%></td>
+                        <td id="06"><%=@matriz[0][6]%></td>
+                        <td id="07"><%=@matriz[0][7]%></td>
+                        <td id="08"><%=@matriz[0][8]%></td>
+                        <td id="09"><%=@matriz[0][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">1</td>
+                        <td id="10"><%=@matriz[1][0]%></td>
+                        <td id="11"><%=@matriz[1][1]%></td>
+                        <td id="12"><%=@matriz[1][2]%></td>
+                        <td id="13"><%=@matriz[1][3]%></td>
+                        <td id="14"><%=@matriz[1][4]%></td>
+                        <td id="15"><%=@matriz[1][5]%></td>
+                        <td id="16"><%=@matriz[1][6]%></td>
+                        <td id="17"><%=@matriz[1][7]%></td>
+                        <td id="18"><%=@matriz[1][8]%></td>
+                        <td id="19"><%=@matriz[1][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">2</td>
+                        <td id="20"><%=@matriz[2][0]%></td>
+                        <td id="21"><%=@matriz[2][1]%></td>
+                        <td id="22"><%=@matriz[2][2]%></td>
+                        <td id="23"><%=@matriz[2][3]%></td>
+                        <td id="24"><%=@matriz[2][4]%></td>
+                        <td id="25"><%=@matriz[2][5]%></td>
+                        <td id="26"><%=@matriz[2][6]%></td>
+                        <td id="27"><%=@matriz[2][7]%></td>
+                        <td id="28"><%=@matriz[2][8]%></td>
+                        <td id="29"><%=@matriz[2][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">3</td>
+                        <td id="30"><%=@matriz[3][0]%></td>
+                        <td id="31"><%=@matriz[3][1]%></td>
+                        <td id="32"><%=@matriz[3][2]%></td>
+                        <td id="33"><%=@matriz[3][3]%></td>
+                        <td id="34"><%=@matriz[3][4]%></td>
+                        <td id="35"><%=@matriz[3][5]%></td>
+                        <td id="36"><%=@matriz[3][6]%></td>
+                        <td id="37"><%=@matriz[3][7]%></td>
+                        <td id="38"><%=@matriz[3][8]%></td>
+                        <td id="39"><%=@matriz[3][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">4</td>
+                        <td id="40"><%=@matriz[4][0]%></td>
+                        <td id="41"><%=@matriz[4][1]%></td>
+                        <td id="42"><%=@matriz[4][2]%></td>
+                        <td id="43"><%=@matriz[4][3]%></td>
+                        <td id="44"><%=@matriz[4][4]%></td>
+                        <td id="45"><%=@matriz[4][5]%></td>
+                        <td id="46"><%=@matriz[4][6]%></td>
+                        <td id="47"><%=@matriz[4][7]%></td>
+                        <td id="48"><%=@matriz[4][8]%></td>
+                        <td id="49"><%=@matriz[4][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">5</td>
+                        <td id="50"><%=@matriz[5][0]%></td>
+                        <td id="51"><%=@matriz[5][1]%></td>
+                        <td id="52"><%=@matriz[5][2]%></td>
+                        <td id="53"><%=@matriz[5][3]%></td>
+                        <td id="54"><%=@matriz[5][4]%></td>
+                        <td id="55"><%=@matriz[5][5]%></td>
+                        <td id="56"><%=@matriz[5][6]%></td>
+                        <td id="57"><%=@matriz[5][7]%></td>
+                        <td id="58"><%=@matriz[5][8]%></td>
+                        <td id="59"><%=@matriz[5][9]%></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="barra-opciones">6</td>
+                        <td id="60"><%=@matriz[6][9]%></td>
+                        <td id="61"><%=@matriz[6][9]%></td>
+                        <td id="62"><%=@matriz[6][9]%></td>
+                        <td id="63"><%=@matriz[6][9]%></td>
+                        <td id="64"><%=@matriz[6][9]%></td>
+                        <td id="65"><%=@matriz[6][9]%></td>
+                        <td id="66"><%=@matriz[6][9]%></td>
+                        <td id="67"><%=@matriz[6][9]%></td>
+                        <td id="68"><%=@matriz[6][9]%></td>
+                        <td id="69"><%=@matriz[6][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">7</td>
+                        <td id="70"><%=@matriz[7][0]%></td>
+                        <td id="71"><%=@matriz[7][1]%></td>
+                        <td id="72"><%=@matriz[7][2]%></td>
+                        <td id="73"><%=@matriz[7][3]%></td>
+                        <td id="74"><%=@matriz[7][4]%></td>
+                        <td id="75"><%=@matriz[7][5]%></td>
+                        <td id="76"><%=@matriz[7][6]%></td>
+                        <td id="77"><%=@matriz[7][7]%></td>
+                        <td id="78"><%=@matriz[7][8]%></td>
+                        <td id="79"><%=@matriz[7][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">8</td>
+                        <td id="80"><%=@matriz[8][0]%></td>
+                        <td id="81"><%=@matriz[8][1]%></td>
+                        <td id="82"><%=@matriz[8][2]%></td>
+                        <td id="83"><%=@matriz[8][3]%></td>
+                        <td id="84"><%=@matriz[8][4]%></td>
+                        <td id="85"><%=@matriz[8][5]%></td>
+                        <td id="86"><%=@matriz[8][6]%></td>
+                        <td id="87"><%=@matriz[8][7]%></td>
+                        <td id="88"><%=@matriz[8][8]%></td>
+                        <td id="89"><%=@matriz[8][9]%></td>
+                    </tr>
+
+                    <tr>
+                        <td class="barra-opciones">9</td>
+                        <td id="90"><%=@matriz[9][0]%></td>
+                        <td id="91"><%=@matriz[9][1]%></td>
+                        <td id="92"><%=@matriz[9][2]%></td>
+                        <td id="93"><%=@matriz[9][3]%></td>
+                        <td id="94"><%=@matriz[9][4]%></td>
+                        <td id="95"><%=@matriz[9][5]%></td>
+                        <td id="96"><%=@matriz[9][6]%></td>
+                        <td id="97"><%=@matriz[9][7]%></td>
+                        <td id="98"><%=@matriz[9][8]%></td>
+                        <td id="99"><%=@matriz[9][9]%></td>
+                    </tr>
+
+                </table>
+            </div>
+        
+            <div class="Sector-Botones">
+                <form  action="/abrircasilla" id="form">
+                    <input type="text" name="X"  placeholder="Posicion X" id="X"> 
+                    <input type="text" name="Y"  placeholder="Posicion Y" id="Y">
+                    <button type="submit" value="Abrir" id="AB" onclick=" return ponerValor()">Abrir Casilla</button>
+                    <button type="submit" value="Bandera" id="BB" onclick=" return ponerBandera()">Bandera</button>
+                         
+                </form>
+            </div>
+
+            <div class="Sector-Juego-Nuevo">
+                <form action="/">
+                    <button type="submit" id="JNuevo" value="JuegoNuevo" disabled>Juego Nuevo</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        var cantTurnos=0; 
+        
+        function ponerValor() {
+            
+            var a = document.getElementById('X').value; 
+            var b = document.getElementById('Y').value;
+            pos = a+b;
+
+            actual_value = document.getElementById(pos).innerText; 
+            console.log(actual_value); 
+            
+            document.getElementById(pos).style.color= "black";
+            limpiarFormulario();
+
+            cantTurnos++;
+            console.log(cantTurnos);
+
+            if(cantTurnos == 92){        //Debe ser ==92 porque hay 100 casillas. Cuando todas se llenan, el jugador gana. 
+                mostrarMensajeGanador();
+            } 
+
+            if (actual_value == '*') { 
+                mostrarMensajeBomba();
+                desabilitarBotones();
+                enableJuegoNuevo();
+            }
+            
+            if (actual_value == '-') { 
+                document.getElementById(pos).style.backgroundColor= "gray";
+            }
+            
+            
+            return false; 
+            
+        }
+
+        function enableJuegoNuevo(){
+            document.getElementById('JNuevo').disabled =false; 
+        }
+
+        function desabilitarBotones(){
+            document.getElementById('X').disabled = true;
+            document.getElementById('Y').disabled =true;
+            document.getElementById('AB').disabled =true; 
+            document.getElementById('BB').disabled =true; 
+        }
+
+        function mostrarMensajeBomba(){
+
+            alert("Bomba! Perdiste");
+            document.getElementById(pos).style.color= "blue";
+            document.getElementById(pos).style.backgroundColor= "red";
+        }
+
+        function mostrarMensajeGanador(){
+
+            alert("Felicidades! Ganaste");
+
+        }
+
+        function limpiarFormulario() {
+
+            document.getElementById("form").reset();
+        }
+
+        function ponerBandera() {
+
+            var a = document.getElementById('X').value; 
+            var b = document.getElementById('Y').value;
+            pos = a+b;
+
+            actual_value = document.getElementById(pos).innerText; 
+            console.log(actual_value);           
+            document.getElementById(pos).style.backgroundColor= "#ff4400";                 
+            limpiarFormulario();
+
+            cantTurnos++;
+            console.log(cantTurnos);
+
+        
+            return false; 
+            
+        }
+
+    </script>
+
+
+
 </body>
 </html>
