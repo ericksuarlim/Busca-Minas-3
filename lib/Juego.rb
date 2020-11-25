@@ -52,11 +52,12 @@ class Juego
         return @matriz_casillas
     end
 
-    def cargarMatrizCompleja(tamano,vector)
-        if(tamano==1)
+    def cargarMatrizCompleja(id,vector)
+        ingresarMinas(id,vector)
+        if(id==1)
             return  @matriz_casillas3
         end
-        if(tamano==2)
+        if(id==2)
             return @matriz_casillas2
         end
     end
@@ -83,10 +84,18 @@ class Juego
         end
     end
 
-    def iniciarMatriz(vector_ubicaciones, id_matriz)
+    def ingresarMinas(id, vector)
         #llenar el tablero con mina
+        # for(int i =0 ; i<vector.length ; i=i+2)
+        #     if(id==1)
+        #         @matriz_casillas2[i][i+1]="*"
+        #     else
+        #         @matriz_casillas3[i][i+1]="*"
+            
+        # end
         #poner numeros al tablero
     end
+    
     def cargarTableroVacio10x10()
         return @matriz_casillas3
     end

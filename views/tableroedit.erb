@@ -106,17 +106,41 @@
 
                     </div>
 
-                    <div id="inputM4" hidden>
-                        <p>Mina 4</p>
-                        <input class="numeros" type="number" name="mina4x"  placeholder="x" id="m4x" max="9" min="0" >
-                        <input class="numeros" type="number" name="mina4y"  placeholder="y" id="m4y" max="9" min="0" onchange="validaRepeticion()">
+
+
+
+                    <div id="inputBM1" hidden>
+                        <p>Mina 1</p>
+                        <input class="numeros" type="number" name="minaB1x"  placeholder="x" id="mB1x" max="14" min="0" >
+                        <input class="numeros" type="number" name="minaB1y"  placeholder="y" id="mB1y" max="14" min="0" >
 
                     </div>
 
-                    <div id="inputM5" hidden>
+                    <div id="inputBM2" hidden>
+                        <p>Mina 2</p>
+                        <input class="numeros" type="number" name="minaB2x"  placeholder="x" id="mB2x" max="14" min="0" >
+                        <input class="numeros" type="number" name="minaB2y"  placeholder="y" id="mB2y" max="14" min="0" onchange="validaRepeticion()">
+
+                    </div>
+
+                    <div id="inputBM3" hidden>
+                        <p>Mina 3</p>
+                        <input class="numeros" type="number" name="minaB3x"  placeholder="x" id="mB3x" max="14" min="0" >
+                        <input class="numeros" type="number" name="minaB3y"  placeholder="y" id="mB3y" max="14" min="0" onchange="validaRepeticion()">
+
+                    </div>
+
+                    <div id="inputBM4" hidden>
+                        <p>Mina 4</p>
+                        <input class="numeros" type="number" name="minaB4x"  placeholder="x" id="mB4x" max="14" min="0" >
+                        <input class="numeros" type="number" name="minaB4y"  placeholder="y" id="mB4y" max="14" min="0" onchange="validaRepeticion()">
+
+                    </div>
+
+                    <div id="inputBM5" hidden>
                         <p>Mina 5</p>
-                        <input class="numeros" type="number" name="mina5x"  placeholder="x" id="m5x" max="9" min="0" >
-                        <input class="numeros" type="number" name="mina5y"  placeholder="y" id="m5y" max="9" min="0" onchange="validaRepeticion()">
+                        <input class="numeros" type="number" name="minaB5x"  placeholder="x" id="mB5x" max="14" min="0" >
+                        <input class="numeros" type="number" name="minaB5y"  placeholder="y" id="mB5y" max="14" min="0" onchange="validaRepeticion()">
 
                     </div>
 
@@ -148,42 +172,93 @@
             document.getElementById('h3_Inputs').hidden = false;
             document.getElementById('boton-jugar').hidden = false;
 
-            document.getElementById('inputM1').hidden = false;
-            document.getElementById('inputM2').hidden = false;
-            document.getElementById('inputM3').hidden = false;
-            if(val_seleccionado==2){
-                document.getElementById('inputM4').hidden = false;
-                document.getElementById('inputM5').hidden = false;
+            if(val_seleccionado==1)
+            {   //muestra
+                document.getElementById('inputM1').hidden = false;
+                document.getElementById('inputM2').hidden = false;
+                document.getElementById('inputM3').hidden = false;
+
+                //oculta
+                document.getElementById('inputBM1').hidden = true;
+                document.getElementById('inputBM2').hidden = true;
+                document.getElementById('inputBM3').hidden = true;
+                document.getElementById('inputBM4').hidden = true;
+                document.getElementById('inputBM5').hidden = true;
 
             }
             else
-            {
-                document.getElementById('inputM4').hidden = true;
-                document.getElementById('inputM5').hidden = true;
+            {   //Muestra
+                document.getElementById('inputBM1').hidden = false;
+                document.getElementById('inputBM2').hidden = false;
+                document.getElementById('inputBM3').hidden = false;
+                document.getElementById('inputBM4').hidden = false;
+                document.getElementById('inputBM5').hidden = false;
+                //Oculta
+                document.getElementById('inputM1').hidden = true;
+                document.getElementById('inputM2').hidden = true;
+                document.getElementById('inputM3').hidden = true;
 
             }
+
+            // document.getElementById('inputM1').hidden = false;
+            // document.getElementById('inputM2').hidden = false;
+            // document.getElementById('inputM3').hidden = false;
+            // if(val_seleccionado==2){
+            //     document.getElementById('inputM4').hidden = false;
+            //     document.getElementById('inputM5').hidden = false;
+
+            // }
+            // else
+            // {
+            //     document.getElementById('inputM4').hidden = true;
+            //     document.getElementById('inputM5').hidden = true;
+
+            // }
 
         }
 
         function validaRepeticion() {
+            //Sacar valor seleccionado
+            var radios = document.getElementsByName('dificultad');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    var opcion_seleccionada= radios[i].value;
+                    break;
+                }
+            }
+
+
             var inputs = document.getElementsByClassName('numeros');
             var apto=true;
-            iterador=0;
-            tam=0
+            
+
+            if(opcion_seleccionada==1)
+            {
+                iterador=0;
+                iterador2=0;
+                tam=0;
+            }
+            else
+            {
+                iterador=6;
+                iterador2=6;
+                tam=6;
+            }
+            
             while(inputs[iterador].value != "")
             {
                 tam=tam+1;
                 iterador++;
-                if(iterador==10)
+                if(iterador==16)
                 {
                     break;
                 }
             }
             //For para controlar las casillas repetidas
-            for(var i = 0; i < tam; i=i+2) {
+            for(var i = iterador2; i < tam; i=i+2) {
 
                 count=0;
-                for(var k = 0; k < tam; k=k+2) {
+                for(var k = iterador2; k < tam; k=k+2) {
                     
                     if( inputs[i].value == inputs[k].value && inputs[i+1].value == inputs[k+1].value)
                     {
@@ -194,6 +269,7 @@
                             i=tam;
                             k=tam;
                             apto=false;
+                            count=0;
                             break;
                         }
 
