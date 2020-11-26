@@ -5,7 +5,7 @@ RSpec.describe Juego do
     before{@juego=Juego.new}
     
 
-    it "Cargar Matriz: En este caso deberia de devolver 3" do
+    it "Cargar Matriz Simple: En este caso deberia de devolver 3" do
         juego = Juego.new
         expect(@juego.cargarMatrizSimple()[1][1]).to eq ('3')
     end
@@ -40,7 +40,7 @@ RSpec.describe Juego do
         expect(@juego.esBomba(0,0)).to eq (false)
     end
 
-    it "Cargar Matriz(1): En este caso deberia de retornar -"  do
+    it "Cargar Matriz Facil: En este caso deberia de retornar -"  do
         juego =Juego.new
         expect(@juego.cargarMatrizCompleja(1,[])[0][0]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(1,[])[0][9]).to eq ('-')
@@ -50,7 +50,7 @@ RSpec.describe Juego do
         
     end
 
-    it "Cargar Matriz(2): En este caso deberia de retornar -"  do
+    it "Cargar Matriz Dificil: En este caso deberia de retornar -"  do
         juego =Juego.new
         expect(@juego.cargarMatrizCompleja(2,[])[0][0]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(2,[])[0][14]).to eq ('-')
@@ -60,11 +60,16 @@ RSpec.describe Juego do
         
     end
 
-    it "Matriz Compleja: En este caso deberia de devolver *"  do
-    juego =Juego.new
-    vector=[1,1]
-    expect(@juego.cargarMatrizCompleja(1,vector)[1][1]).to eq ('*')
+    it "Reemplazar valor en Matriz Facil: En este caso deberia de devolver *"  do
+        juego =Juego.new
+        vector=[1,1]
+        expect(@juego.cargarMatrizCompleja(1,vector)[1][1]).to eq ('*')
     end
 
+    it "Reemplazar valor en Matriz Dificil: En este caso deberia de devolver *"  do
+        juego =Juego.new
+        vector=[1,1]
+        expect(@juego.cargarMatrizCompleja(2,vector)[1][1]).to eq ('*')
+    end
 
 end

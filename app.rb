@@ -29,24 +29,24 @@ get '/cargartablero' do
     @id_matriz= params[:dificultad].to_i
 
     if(@id_matriz==1)
-        min1x=params[:mina1x];
-        min1y=params[:mina1y];
-        min2x=params[:mina2x];
-        min2y=params[:mina2y];
-        min3x=params[:mina3x];
-        min3y=params[:mina3y];
+        min1x=params[:mina1x].to_i;
+        min1y=params[:mina1y].to_i;
+        min2x=params[:mina2x].to_i;
+        min2y=params[:mina2y].to_i;
+        min3x=params[:mina3x].to_i;
+        min3y=params[:mina3y].to_i;
         vector=[min1x,min1y,min2x,min2y,min3x,min3y];
     else
-        min1x=params[:minaB1x];
-        min1y=params[:minaB1y];
-        min2x=params[:minaB2x];
-        min2y=params[:minaB2y];
-        min3x=params[:minaB3x];
-        min3y=params[:minaB3y];
-        min4x=params[:minaB4x];
-        min4y=params[:minaB4y];
-        min5x=params[:minaB5x];
-        min5y=params[:minaB5y];
+        min1x=params[:minaB1x].to_i;
+        min1y=params[:minaB1y].to_i;
+        min2x=params[:minaB2x].to_i;
+        min2y=params[:minaB2y].to_i;
+        min3x=params[:minaB3x].to_i;
+        min3y=params[:minaB3y].to_i;
+        min4x=params[:minaB4x].to_i;
+        min4y=params[:minaB4y].to_i;
+        min5x=params[:minaB5x].to_i;
+        min5y=params[:minaB5y].to_i;
         vector=[min1x,min1y,min2x,min2y,min3x,min3y,min4x,min4y,min5x,min5y];
     end
     
