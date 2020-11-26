@@ -75,8 +75,8 @@ RSpec.describe Juego do
     it "Agregar numero a Matriz Facil: En este caso deberia de retornar 1,2"  do
         juego =Juego.new
         vector=[1,1,2,2,3,3]
-        expect(@juego.cargarMatrizCompleja(1,vector)[0][0]).to eq ('1')
-        #expect(@juego.cargarMatrizCompleja(1,vector)[1][2]).to eq ('2')
+        expect(@juego.cargarMatrizCompleja(1,vector)[1][1]).to eq ('*')
+        expect(@juego.cargarMatrizCompleja(1,vector)[2][2]).to eq ('*')
     end
 
     
