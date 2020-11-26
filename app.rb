@@ -26,9 +26,9 @@ get '/tableromain' do
 end
 
 get '/cargartablero' do
-    @id_matriz= params[:dificultad].to_i
+    @id_dificultad= params[:dificultad].to_i
 
-    if(@id_matriz==1)
+    if(@id_dificultad==1)
         min1x=params[:mina1x].to_i;
         min1y=params[:mina1y].to_i;
         min2x=params[:mina2x].to_i;
@@ -52,11 +52,11 @@ get '/cargartablero' do
     
     # @suma= vector[1] #Variable de prueba por si no entra a la vista correcta
     # erb:id           
-    @matriz =juego.cargarMatrizCompleja(@id_matriz,vector)
+    @matriz =juego.cargarMatrizCompleja(@id_dificultad,vector)
 
-    if @id_matriz == 1
+    if @id_dificultad == 1
         erb:tableroFacil 
-    else @id_matriz == 2
+    else @id_dificultad == 2
         erb:tableroDificil                               
     end
  
