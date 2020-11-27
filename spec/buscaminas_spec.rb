@@ -66,16 +66,18 @@ RSpec.describe Juego do
         expect(@juego.cargarMatrizCompleja(1,vector)[1][1]).to eq ('*')
     end
 
-    it "Reemplazar valor en Matriz Dificil: En este caso deberia de devolver *"  do
+    it "Reemplazar valor en Matriz Dificil: En estos dos casos deberia de devolver *"  do
         juego =Juego.new
-        vector=[1,1]
+        vector=[1,1,2,2]
         expect(@juego.cargarMatrizCompleja(2,vector)[1][1]).to eq ('*')
+        expect(@juego.cargarMatrizCompleja(2,vector)[2][2]).to eq ('*')
     end
 
     it "Agregar numero a Matriz Facil: En este caso deberia de retornar 2"  do
         juego =Juego.new
         vector=[1,1,2,2,3,3]
         expect(@juego.cargarMatrizCompleja(1,vector)[1][2]).to eq ('2')
+        
     end
 
     it "Agregar numero a Matriz Dificil: En este caso deberia de retornar 1,2"  do

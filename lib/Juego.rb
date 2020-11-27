@@ -26,7 +26,7 @@ class Juego
 
     def cargarMatrizCompleja(id_dificultad,vector)
         ingresarMinas(id_dificultad,vector)
-        # agregarNumerosdeReferencia(id_dificultad)
+        agregarNumerosdeReferencia(id_dificultad)
 
         if(id_dificultad==1)
             return @matriz_facil
