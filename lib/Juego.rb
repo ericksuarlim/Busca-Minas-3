@@ -84,32 +84,66 @@ class Juego
 
     def agregarNumerosdeReferencia(id_dificultad)
         if(id_dificultad==1)
-            tamano=10
+            tamano=9
+            agregarNumerosMatrizFacil(tamano)
         else
-            tamano=15
+            tamano=14
+            agregarNumerosMatrizDificil(tamano)
         end
 
+        
+    end
+
+    def agregarNumerosMatrizFacil(tamano)
         for i in (0..tamano) do #2 for para recorrer la matriz
             for j in (0..tamano)do
 
                 cantidad_minas=0
-
                 if(@matriz_facil[i][j] != '*')#para evitar que reemplace una mina
-                    for m in (i-1..i+1) do #2 For para recorrer las casillas alrededor de la casilla donde nos encontramos
-                        for n in (j-1..j+1) do
-                            if(@matriz_facil[m][n] != nil)#para evitar ingresar a casillas nulas
+                     for m in (i-1..i+1) do #2 For para recorrer las casillas alrededor de la casilla donde nos encontramos
+                         for n in (j-1..j+1) do
+                             if(m>-1 and n>-1 and m<tamano and n<tamano)#para evitar ingresar a casillas nulas
                                 
                                 if(@matriz_facil[m][n]=='*')#aqui falla ya que cuadno el j y i sean 0, no existe el valor matriz[-1][-1]
                                     cantidad_minas= cantidad_minas + 1
                                 end
                             end
+                            
                         end
-                    end
-                    @matriz_facil[i][j]=cantidad_minas
+                        
+                    end          
+                    if(cantidad_minas!=0)
+                        @matriz_facil[i][j] = cantidad_minas.to_s
+                    end                  
                 end
             end
         end
+    end
 
+    def agregarNumerosMatrizDificil(tamano)
+        for i in (0..tamano) do #2 for para recorrer la matriz
+            for j in (0..tamano)do
+
+                cantidad_minas=0
+                if(@matriz_dificil[i][j] != '*')#para evitar que reemplace una mina
+                     for m in (i-1..i+1) do #2 For para recorrer las casillas alrededor de la casilla donde nos encontramos
+                         for n in (j-1..j+1) do
+                             if(m>-1 and n>-1 and m<tamano and n<tamano)#para evitar ingresar a casillas nulas
+                                
+                                if(@matriz_dificil[m][n]=='*')#aqui falla ya que cuadno el j y i sean 0, no existe el valor matriz[-1][-1]
+                                    cantidad_minas= cantidad_minas + 1
+                                end
+                            end
+                            
+                        end
+                        
+                    end          
+                    if(cantidad_minas!=0)
+                        @matriz_dificil[i][j] = cantidad_minas.to_s
+                    end                  
+                end
+            end
+        end
     end
 
 end
