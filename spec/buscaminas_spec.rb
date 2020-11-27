@@ -45,9 +45,7 @@ RSpec.describe Juego do
         expect(@juego.cargarMatrizCompleja(1,[])[0][0]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(1,[])[0][9]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(1,[])[9][0]).to eq ('-')
-        expect(@juego.cargarMatrizCompleja(1,[])[9][9]).to eq ('-')
-        #Probando con las esquinas del tablero 10x10
-        
+        expect(@juego.cargarMatrizCompleja(1,[])[9][9]).to eq ('-')       
     end
 
     it "Cargar Matriz Dificil: En este caso deberia de retornar -"  do
@@ -55,9 +53,7 @@ RSpec.describe Juego do
         expect(@juego.cargarMatrizCompleja(2,[])[0][0]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(2,[])[0][14]).to eq ('-')
         expect(@juego.cargarMatrizCompleja(2,[])[14][0]).to eq ('-')
-        expect(@juego.cargarMatrizCompleja(2,[])[14][14]).to eq ('-')
-        #Probando con las esquinas del tablero 15x15
-        
+        expect(@juego.cargarMatrizCompleja(2,[])[14][14]).to eq ('-')        
     end
 
     it "Reemplazar valor en Matriz Facil: En este caso deberia de devolver *"  do

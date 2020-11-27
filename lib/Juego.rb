@@ -104,7 +104,7 @@ class Juego
                          for n in (j-1..j+1) do
                              if(m>-1 and n>-1 and m<tamano and n<tamano)#para evitar ingresar a casillas nulas
                                 
-                                if(@matriz_facil[m][n]=='*')#aqui falla ya que cuadno el j y i sean 0, no existe el valor matriz[-1][-1]
+                                if(@matriz_facil[m][n]=='*')
                                     cantidad_minas= cantidad_minas + 1
                                 end
                             end
@@ -112,7 +112,7 @@ class Juego
                         end
                         
                     end          
-                    if(cantidad_minas!=0)
+                    if(cantidad_minas!=0)#Para evitar que reemplace - por 0
                         @matriz_facil[i][j] = cantidad_minas.to_s
                     end                  
                 end
